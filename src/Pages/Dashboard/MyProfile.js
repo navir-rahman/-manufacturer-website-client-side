@@ -6,6 +6,7 @@ import axiosInterseptor from '../../hooks/axiosInterseptor';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
+    const image = useRef(' ');
     const education = useRef(' ');
     const location = useRef(' ');
     const phone = useRef(' ');
@@ -20,14 +21,13 @@ const MyProfile = () => {
     //handleuserUpdate
     const handleuserUpdate = (e) => {
         e.preventDefault();
+        const img = image.current.value;
         const edu = education.current.value;
         const locat = location.current.value;
         const phon = phone.current.value;
         const linked = LinkedIn.current.value;
 
-        const newdata = { education: edu, location: locat, phone: phon, linkedin: linked }
-
-
+        const newdata = { img:img, education: edu, location: locat, phone: phon, linkedin: linked }
         return axiosInterseptor({
             method: 'post',
             url: `/userupdate/${data._id}`,
@@ -46,7 +46,7 @@ const MyProfile = () => {
                 <div class="hero-content flex-col lg:flex-row">
                     <div class="avatar">
                         <div class="w-24 mask mask-squircle">
-                            <img src={data?.img} />
+                            <img src={data?.img} alt={data?.img} />
                         </div>
                     </div>
                     <div>
@@ -103,27 +103,33 @@ const MyProfile = () => {
                 <form onSubmit={handleuserUpdate} class="card-body">
                     <div class="form-control">
                         <label class="label">
+                            <span class="label-text">Image</span>
+                        </label>
+                        <input required ref={image} type="text" placeholder="Image" class="input input-bordered" />
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
                             <span class="label-text">education</span>
                         </label>
-                        <input ref={education} type="text" placeholder="education" class="input input-bordered" />
+                        <input required ref={education} type="text" placeholder="education" class="input input-bordered" />
                     </div>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">location</span>
                         </label>
-                        <input ref={location} type="text" placeholder="location" class="input input-bordered" />
+                        <input required ref={location} type="text" placeholder="location" class="input input-bordered" />
                     </div>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Phone number</span>
                         </label>
-                        <input ref={phone} type="tel" placeholder="Phone number" class="input input-bordered" />
+                        <input required ref={phone} type="tel" placeholder="Phone number" class="input input-bordered" />
                     </div>
                     <div class="form-control">
                         <label class="label">
-                            <span class="label-text"></span>
+                            <span class="label-text">LinkedIn</span>
                         </label>
-                        <input ref={LinkedIn} type="text" placeholder="LinkedIn" class="input input-bordered" />
+                        <input required ref={LinkedIn} type="text" placeholder="LinkedIn" class="input input-bordered" />
                     </div>
                     <div class="form-control mt-6">
                         <button type='submit' class="btn btn-primary">

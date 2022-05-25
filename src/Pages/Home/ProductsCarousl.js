@@ -1,16 +1,21 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import { Link, useParams } from 'react-router-dom';
 import axiosInterseptor from '../../hooks/axiosInterseptor';
 
 const ProductsCarousl = () => {
+    const { id } = useParams();
     const { isLoading, isError, data, error } = useQuery('taskds', () => {
         return axiosInterseptor({
             url: `/productget`
         }).then((res) => res.data)
     })
-    console.log(data);
+    //console.log(data);
     if (isLoading) {
         return <h2>loading ... </h2>
+    }
+    const handleaddToPurchase=()=>{
+        
     }
     return (
         <section className='bg-base-100 shadow-xl pb-20'>
@@ -35,7 +40,9 @@ const ProductsCarousl = () => {
                                             </label>
                                         </div>
                                         <div class="card-actions justify-center">
+                                            <Link to={`/Purchase/${p._id}`}>
                                             <button class="btn btn-primary">Buy Now</button>
+                                            </Link>
                                         </div>
                                     </form>
                                 </div>
