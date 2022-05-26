@@ -1,24 +1,18 @@
 import React, { useRef } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import axiosInterseptor from '../../hooks/axiosInterseptor';
+import MakePayment from './MakePayment';
 
 const MakeOrder = ({ ProductId }) => {
 
     const [user] = useAuthState(auth);
-    const deliveryAddress = useRef(' ');
-    const deliveryPhone = useRef(' ');
-    // get order 
-    const { isLoading: orderIsloading, isError: orderisError, data: orderdata, error: ordererror } = useQuery('orderloading', async () => {
-        const res = await axiosInterseptor({
-            method: 'get',
-            url: `orderget/${user.email}`
-        });
-        return res.data;
-    })
- 
-   // const { _id: id, user: Ouser, product, orderquntity, productId, paid } = orderdata;
+
+
+
+    // const { _id: id, user: Ouser, product, orderquntity, productId, paid } = orderdata;
 
 
     // get user data 
@@ -34,24 +28,7 @@ const MakeOrder = ({ ProductId }) => {
     }
 
 
-    const handlePurchase = (e) => {
-        e.preventDefault();
 
-        const dAddress = deliveryAddress.current.value;
-        const dPhone = deliveryPhone.current.value;
-
-        const orderStatus = { user: user.email, product: orderdata.product, orderquntity: orderdata.orderquntity, productId: orderdata.productId, paid: "paid", deliveryAddress: dAddress, deliveryphone: dPhone }
-        console.log(orderStatus);
-        return axiosInterseptor({
-            method: 'post',
-            url: `/orderupdate/${orderdata._id}`,
-            data: orderStatus
-        }).then(
-            e.target.reset()
-        )
-
-
-    }
     return (
         <section>
             <div class=" grid grid-cols-2 ">
@@ -73,46 +50,19 @@ const MakeOrder = ({ ProductId }) => {
                                 # our bank details
                             </p>
                             <div class="card-actions justify-end">
-                                    <button class="btn">Buy Now</button>
-                                </div>
+                                <button class="btn">Buy Now</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <form onSubmit={handlePurchase} className='flex flex-col form-control'>
-                    <h1 className='text-4xl text-center'>Purchese Now</h1>
-                    <div class="card-body">
-
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">name</span>
-                            </label>
-                            <input type="text" value={data.name} class="input input-bordered" />
-                        </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Email</span>
-                            </label>
-                            <input type="email" value={data.email} class="input input-bordered" />
-                        </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">address</span>
-                            </label>
-                            <input type="address" placeholder="address" class="input input-bordered" />
-                        </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Phone</span>
-                            </label>
-                            <input type="tel" placeholder="Phone" class="input input-bordered" />
-                        </div>
-                        <div class="form-control mt-6">
-
-                            <button type='submit' className='btn btn-primary' disabled={orderdata.paid ? 'disibled' : ''}> {orderdata.paid ? orderdata.paid : 'Make paymnet'}</button>
-                        </div>
-
+                {/* <MakePayment  user={user} odData={data}  ProductId={ProductId}></MakePayment> */}
+                <div className="card bg-base-100">
+                    <div className="card-body rounded-lg shadow-2xl text-center flex-grow-0 m-10">
+                        <h1 className='text-4xl text-center'>Purchese Now</h1>
+                        <p className='text-center'>Make the Payment an confirm your order</p>
+                        <Link to={'/dashboard/myorder'}> <button className='btn btn-primary'> Pay Now</button></Link>
                     </div>
-                </form>
+                </div>
             </div>
         </section>
     );

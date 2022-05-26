@@ -19,6 +19,7 @@ import AddAProduct from './Pages/Dashboard/Admin/AddAProduct';
 import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin';
 import ManageAllOrders from './Pages/Dashboard/Admin/ManageAllOrders';
 import ManageProducts from './Pages/Dashboard/Admin/ManageProducts';
+import CheckOut from './Pages/Dashboard/CheckOut.js/CheckOut';
 
 function App() {
   // Create a client
@@ -37,6 +38,11 @@ function App() {
             <Route path="Purchase/:ProductId" element={
               <RequirAuth>
                 <Purchase></Purchase>
+              </RequirAuth>
+            } />
+            <Route path="/checkout/:checkoutPID" element={
+              <RequirAuth>
+                <CheckOut></CheckOut>
               </RequirAuth>
             } />
             <Route path="dashboard" element={

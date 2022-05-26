@@ -3,26 +3,25 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import auth from '../../firebase.init';
 import axiosInterseptor from '../../hooks/axiosInterseptor';
+import MysingleOrder from './MysingleOrder';
 
 const MyOrders = () => {
     const [user] = useAuthState(auth);
     // get order 
-    const { isLoading: orderIsloading, isError: orderisError, data, error: ordererror } = useQuery('orderloading', () => {
-        return axiosInterseptor({
+    const { isLoading: orderIsloading, isError: orderisError, data, error: ordererror } = useQuery('orderloading', async () => {
+        const res = await axiosInterseptor({
             method: 'get',
             url: `orderget/${user.email}`
-        }).then((res) => res.data)
+        });
+        return res.data;
     })
 
     console.log(data);
     return (
         <div>
             {
-                data?.map(da=>{
-                    return <section>
-                        {da._id}
-                    </section>
-                })
+                data?.map(order => <MysingleOrder order={order} key={order._id}></MysingleOrder>
+                )
             }
         </div>
     );
