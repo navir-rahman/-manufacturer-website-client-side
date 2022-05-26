@@ -7,7 +7,7 @@ import axiosInterseptor from '../../hooks/axiosInterseptor';
 
 const Register = () => {
     const [user, loading, error] = useAuthState(auth);
-    const [createUserWithEmailAndPassword, Euser, Eloading, Eerror,] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, Euser, Eloading, Emailerror,] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
     
     const name = useRef(' ')
@@ -75,6 +75,17 @@ const Register = () => {
                             <button type='submit' class="btn btn-primary">Register</button>
                         </div>
                     </form>
+
+                    {
+                        Emailerror?
+                        <p>Error: {Emailerror.message}</p>
+                        : ' '
+                    }
+                    {
+                        Gerror?
+                        <p>Error: {Gerror.message}</p>
+                        : ' '
+                    }
                     <div class="divider">OR Register Using</div>
 
                     <button className='text-center' onClick={handlegoogle}><img className=' image-full m-auto' src="https://img.icons8.com/fluency/48/000000/google-logo.png" /></button>

@@ -6,7 +6,9 @@ import auth from '../../firebase.init';
 
 const Login = () => {
     const [user, loading, error] = useAuthState(auth);
-    const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, euser,
+        eloading,
+        Emailerror,] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
     let navigate = useNavigate();
     let location = useLocation();
@@ -23,6 +25,7 @@ const Login = () => {
         const pass = password.current.value;
         signInWithEmailAndPassword(mail, pass)
     }
+
     if (user || Guser) {
         navigate(from, { replace: true });
     }
@@ -57,6 +60,17 @@ const Login = () => {
                             <button type='submit' class="btn btn-primary">Login</button>
                         </div>
                     </form>
+
+                    {
+                        Emailerror?
+                        <p>Error: {Emailerror.message}</p>
+                        : ' '
+                    }
+                    {
+                        Gerror?
+                        <p>Error: {Gerror.message}</p>
+                        : ' '
+                    }
                     <div class="divider">OR Login Using</div>
 
                     <button className='text-center' onClick={handlegoogle}><img className=' image-full m-auto' src="https://img.icons8.com/fluency/48/000000/google-logo.png" /></button>

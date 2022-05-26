@@ -42,7 +42,7 @@ const Purchase = () => {
 
 
                 data?.map(p => {
-                    return <div className="">
+                    return <div className="">{console.log(p)}
                         <div class="hero min-h-[40vh] bg-base-200">
                             <div class="hero-content flex-col lg:flex-row">
                                 <img src={p.pic} class="max-w-sm rounded-lg shadow-2xl" />

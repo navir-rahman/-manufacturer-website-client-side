@@ -20,6 +20,9 @@ import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin';
 import ManageAllOrders from './Pages/Dashboard/Admin/ManageAllOrders';
 import ManageProducts from './Pages/Dashboard/Admin/ManageProducts';
 import CheckOut from './Pages/Dashboard/CheckOut.js/CheckOut';
+import NotFound from './Pages/NotFound/NotFound';
+import Blog from './Pages/Blog/Blog';
+import Portfolio from './Pages/Portfolio/Portfolio';
 
 function App() {
   // Create a client
@@ -34,7 +37,7 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home></Home>} />
+            <Route path="/home" element={<Home />} />
             <Route path="Purchase/:ProductId" element={
               <RequirAuth>
                 <Purchase></Purchase>
@@ -47,7 +50,7 @@ function App() {
             } />
             <Route path="dashboard" element={
               <RequirAuth>
-                <Dashboard></Dashboard>
+                <Dashboard element={<MyProfile></MyProfile>} />
               </RequirAuth>
             } >
 
@@ -60,11 +63,16 @@ function App() {
               <Route path='manageorder' element={<ManageAllOrders></ManageAllOrders>}></Route>
               <Route path='manageproducts' element={<ManageProducts></ManageProducts>}></Route>
 
+
             </Route>
 
 
             <Route path="login" element={<Login></Login>} />
             <Route path="register" element={<Register></Register>} />
+
+            <Route path='/blog' element={<Blog></Blog>}></Route>
+              <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
+              <Route path='*' element={<NotFound></NotFound>}></Route>
           </Routes>
 
 

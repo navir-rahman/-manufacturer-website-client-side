@@ -1,7 +1,22 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import { Link, Outlet } from 'react-router-dom';
+import auth from '../../firebase.init';
+import axiosInterseptor from '../../hooks/axiosInterseptor';
+import MyProfile from './MyProfile';
 
 const Dashboard = () => {
+    const [user,] = useAuthState(auth);
+        //   // get user data 
+        //   const { isLoading, isError, data, error } = useQuery('UserRole', async () => {
+        //     const res = await axiosInterseptor({
+        //         method: 'get',
+        //         url: `userget/${user.email}`
+        //     });
+        //     return res.data;
+        // })
+        // console.log(data);
     return (
         <div className='flex'>
             <div class="drawer drawer-mobile w-[15%]">
@@ -30,6 +45,7 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className='w-[84.9%]'>
+
                 <Outlet />
             </div>
 

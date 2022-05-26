@@ -26,7 +26,24 @@ const MysingleOrder = (props) => {
 
             </div>
             <div class="card-actions lg:flex-col lg:p-9 m-auto pb-3">
-                <button class="btn bg-red-500" disabled={paid ? 'disabled' : ''} onClick={handleDeleteAdmin}>Remove product</button>
+                {/* <button class="btn bg-red-500" disabled={paid ? 'disabled' : ''} onClick={handleDeleteAdmin}>Remove product</button> */}
+
+                <label for="my-modal" disabled={paid ? 'disabled' : ''} class="btn bg-red-500 modal-button">Remove product</label>
+
+
+                <input type="checkbox" id="my-modal" class="modal-toggle" />
+                <div class="modal">
+                    <div class="modal-box">
+                        <h3 class="font-bold text-lg">Are you sure you want to remove this item</h3>
+                        
+                        <div class="modal-action">
+                            <label for="my-modal" onClick={handleDeleteAdmin} class="btn">Yes</label>
+                            <label for="my-modal" class="btn">No</label>
+                        </div>
+                    </div>
+                </div>
+
+
                 <Link to={`/checkout/${_id}`} ><button class="btn bg-green-500" disabled={paid ? 'disabled' : ''} >Make payment</button></Link>
             </div>
         </div>

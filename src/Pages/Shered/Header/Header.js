@@ -10,6 +10,8 @@ const Header = () => {
         <>
             <li><Link to={'/home'}>Home</Link></li>
             <li><Link to={'/purchase'}>Purchase</Link></li>
+            <li><Link to={'/blog'}>Blog</Link></li>
+            <li><Link to={'/portfolio'}>Portfolio</Link></li>
             {
                 user ?
                     <li><Link to={'/dashboard'}>Dashboard</Link></li>
@@ -33,12 +35,12 @@ const Header = () => {
                             }
                         </ul>
                     </div>
-                    <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <Link to={'/'}><p class="btn btn-ghost normal-case text-xl">Apexcipp</p></Link>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0 ">
                         {
-                            menu
+                            menu 
                         }
                     </ul>
                 </div>
