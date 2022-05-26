@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
@@ -8,6 +8,8 @@ import axiosInterseptor from '../../hooks/axiosInterseptor';
 const Register = () => {
     const [user, loading, error] = useAuthState(auth);
     const [createUserWithEmailAndPassword, Euser, Eloading, Eerror,] = useCreateUserWithEmailAndPassword(auth);
+    const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
+    
     const name = useRef(' ')
     const email = useRef(' ')
     const password = useRef(' ')
@@ -32,10 +34,14 @@ const Register = () => {
         });
         createUserWithEmailAndPassword(mail, pass);
     }
-    if (user) {
+    if (user || Guser) {
 
         navigate(from, { replace: true });
         return toast("User added");
+    }
+
+    const handlegoogle = () => {
+        signInWithGoogle()
     }
     return (
         <section className='min-h-[70vh]'>
@@ -69,6 +75,10 @@ const Register = () => {
                             <button type='submit' class="btn btn-primary">Register</button>
                         </div>
                     </form>
+                    <div class="divider">OR Register Using</div>
+
+                    <button className='text-center' onClick={handlegoogle}><img className=' image-full m-auto' src="https://img.icons8.com/fluency/48/000000/google-logo.png" /></button>
+                   
                 </div>
             </div>
         </section>

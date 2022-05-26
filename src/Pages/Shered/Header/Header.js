@@ -16,8 +16,9 @@ const Header = () => {
                     :
                     <></>
             }
-
         </>
+
+    console.log(user);
     return (
         <div>
             <div class="navbar bg-base-100 container m-auto px-0">
@@ -42,9 +43,10 @@ const Header = () => {
                     </ul>
                 </div>
                 <div class="navbar-end">
+                    <p className=' text-lg p-3'> <b>{user?.displayName || user?.email}</b></p>
                     {
                         user ?
-                            <button onClick={() => signOut(auth)}>Sign Out</button>
+                            <button className='btn btn-dark' onClick={() => signOut(auth)}>Sign Out</button>
                             :
                             <Link className='btn' to={'/login'}>Login</Link>
 

@@ -34,7 +34,7 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="home" element={<Home></Home>} />
+            <Route path="/home" element={<Home></Home>} />
             <Route path="Purchase/:ProductId" element={
               <RequirAuth>
                 <Purchase></Purchase>

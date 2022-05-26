@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
@@ -7,6 +7,7 @@ import auth from '../../firebase.init';
 const Login = () => {
     const [user, loading, error] = useAuthState(auth);
     const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -22,8 +23,12 @@ const Login = () => {
         const pass = password.current.value;
         signInWithEmailAndPassword(mail, pass)
     }
-    if (user) {
+    if (user || Guser) {
         navigate(from, { replace: true });
+    }
+
+    const handlegoogle = () => {
+        signInWithGoogle()
     }
     return (
         <section className='min-h-[70vh]'>
@@ -52,7 +57,9 @@ const Login = () => {
                             <button type='submit' class="btn btn-primary">Login</button>
                         </div>
                     </form>
+                    <div class="divider">OR Login Using</div>
 
+                    <button className='text-center' onClick={handlegoogle}><img className=' image-full m-auto' src="https://img.icons8.com/fluency/48/000000/google-logo.png" /></button>
                 </div>
             </div>
         </section>
