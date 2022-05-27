@@ -22,3 +22,4 @@ Live Project [Live link](https://lambent-bombolone-4fe6c9.netlify.app/).
 ● Manage user
 ● Admin features
 ● Wholesell features
+● Profile management
