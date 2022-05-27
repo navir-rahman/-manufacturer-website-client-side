@@ -46,33 +46,33 @@ const Register = () => {
     return (
         <section className='min-h-[70vh]'>
             <h1 className='text-4xl text-center m-8'>Register</h1>
-            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto ">
-                <div class="card-body">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto ">
+                <div className="card-body">
                     <form onSubmit={handleRegister}>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Name</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
                             </label>
-                            <input ref={name} type="text" placeholder="name" class="input input-bordered" />
+                            <input ref={name} type="text" placeholder="name" className="input input-bordered" />
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Email</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
                             </label>
-                            <input ref={email} type="email" placeholder="email" class="input input-bordered" />
+                            <input ref={email} type="email" placeholder="email" className="input input-bordered" />
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Password</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Password</span>
                             </label>
-                            <input ref={password} type="password" placeholder="password" class="input input-bordered" />
-                            <label class="label">
+                            <input ref={password} type="password" placeholder="password" className="input input-bordered" />
+                            <label className="label">
 
-                                <a href="#" class="label-text-alt link link-hover">already have an account? <span><Link to={'/login'}>Login here</Link></span></a>
+                                <a href="#" className="label-text-alt link link-hover">already have an account? <span><Link to={'/login'}>Login here</Link></span></a>
                             </label>
                         </div>
-                        <div class="form-control mt-6">
-                            <button type='submit' class="btn btn-primary">Register</button>
+                        <div className="form-control mt-6">
+                            <button type='submit' className="btn btn-primary">Register</button>
                         </div>
                     </form>
 
@@ -86,7 +86,7 @@ const Register = () => {
                         <p>Error: {Gerror.message}</p>
                         : ' '
                     }
-                    <div class="divider">OR Register Using</div>
+                    <div className="divider">OR Register Using</div>
 
                     <button className='text-center' onClick={handlegoogle}><img className=' image-full m-auto' src="https://img.icons8.com/fluency/48/000000/google-logo.png" /></button>
                    

@@ -18,23 +18,23 @@ const User = (props) => {
         })
     }
     return (
-        <div class="card bg-base-100 shadow-xl flex lg:flex-row m-5">
-            <div class="card-body flex-row">
-                <div class="avatar">
-                    <div class="w-24 mask mask-squircle">
+        <div className="card bg-base-100 shadow-xl flex lg:flex-row m-5">
+            <div className="card-body flex-row">
+                <div className="avatar">
+                    <div className="w-24 mask mask-squircle">
                         <img src={img} alt={img}/>
                     </div>
                 </div>
                 <div className=''>
-                    <h2 class="card-title">{name}</h2>
+                    <h2 className="card-title">{name}</h2>
                     <p>{email}</p>
                     <p >User Role: {Role}</p>
                 </div>
 
             </div>
-            <div class="card-actions lg:flex-col lg:p-9 m-auto pb-3">
-                <button class="btn btn-primary" onClick={handleMakeadmin}>Make Admin</button>
-                <button class="btn bg-red-500" onClick={handleDeleteAdmin}>Remove User</button>
+            <div className="card-actions lg:flex-col lg:p-9 m-auto pb-3">
+                <button className="btn btn-primary" onClick={handleMakeadmin}>Make Admin</button>
+                <button className="btn bg-red-500" onClick={handleDeleteAdmin}>Remove User</button>
             </div>
         </div>
     );

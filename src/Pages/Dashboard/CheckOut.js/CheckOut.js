@@ -43,33 +43,33 @@ const CheckOut = () => {
                     return <div>
                               <form onSubmit={handlePurchase} className='flex flex-col form-control'>
             <h1 className='text-4xl text-center'>Purchese Now</h1>
-            <div class="card-body">
+            <div className="card-body">
 
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">name</span>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">name</span>
                     </label>
-                    <input type="text" value={user.name} class="input input-bordered" />
+                    <input type="text" value={user.name} className="input input-bordered" />
                 </div>
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Email</span>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Email</span>
                     </label>
-                    <input type="email" value={user.email} class="input input-bordered" />
+                    <input type="email" value={user.email} className="input input-bordered" />
                 </div>
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">address</span>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">address</span>
                     </label>
-                    <input type="address" placeholder="address" class="input input-bordered" />
+                    <input type="address" placeholder="address" className="input input-bordered" />
                 </div>
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Phone</span>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Phone</span>
                     </label>
-                    <input type="tel" placeholder="Phone" class="input input-bordered" />
+                    <input type="tel" placeholder="Phone" className="input input-bordered" />
                 </div>
-                <div class="form-control mt-6">
+                <div className="form-control mt-6">
 
                     <button type='submit' className='btn btn-primary' disabled={orderdata.paid ? 'disibled' : ''}> {orderdata.paid ? orderdata.paid : 'Make paymnet'}</button>
                 </div>

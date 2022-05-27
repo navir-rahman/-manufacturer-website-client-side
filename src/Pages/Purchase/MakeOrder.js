@@ -31,11 +31,11 @@ const MakeOrder = ({ ProductId }) => {
 
     return (
         <section>
-            <div class=" grid grid-cols-2 ">
+            <div className=" grid grid-cols-2 ">
                 <div className=''>
-                    <div class="card bg-base-200 text-black">
-                        <div class="card-body">
-                            <h2 class=" card-title">{data.name}</h2>
+                    <div className="card bg-base-200 text-black">
+                        <div className="card-body">
+                            <h2 className=" card-title">{data.name}</h2>
                             <p> <b>Email:</b> {data.email}</p>
                             <p><b> User Role: </b>{data.Role}</p>
 
@@ -49,8 +49,8 @@ const MakeOrder = ({ ProductId }) => {
                                 Pay on our Bank:
                                 # our bank details
                             </p>
-                            <div class="card-actions justify-end">
-                                <button class="btn">Buy Now</button>
+                            <div className="card-actions justify-end">
+                                <button className="btn">Buy Now</button>
                             </div>
                         </div>
                     </div>

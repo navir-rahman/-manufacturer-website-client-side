@@ -43,16 +43,16 @@ const Purchase = () => {
 
                 data?.map(p => {
                     return <div className="">{console.log(p)}
-                        <div class="hero min-h-[40vh] bg-base-200">
-                            <div class="hero-content flex-col lg:flex-row">
-                                <img src={p.pic} class="max-w-sm rounded-lg shadow-2xl" />
+                        <div className="hero min-h-[40vh] bg-base-200">
+                            <div className="hero-content flex-col lg:flex-row">
+                                <img src={p.pic} className="max-w-sm rounded-lg shadow-2xl" />
                                 <div>
-                                    <h1 class="text-2xl font-bold">{p?.name}</h1>
-                                    <p class="text-xl ">Price: ${p?.price}</p>
-                                    <p class="py-6">{p?.dis}</p>
+                                    <h1 className="text-2xl font-bold">{p?.name}</h1>
+                                    <p className="text-xl ">Price: ${p?.price}</p>
+                                    <p className="py-6">{p?.dis}</p>
                                     <form onSubmit={HandleItemUpdate} className='form-control'>
-                                        <input ref={quntity} type="number" max={p?.qun} step={p?.minOrder} min={p?.minOrder} placeholder={p?.minOrder} class="input input-bordered input-md w-full max-w-xs" />
-                                        <button class="btn btn-primary" type='submit'>Update</button>
+                                        <input ref={quntity} type="number" max={p?.qun} step={p?.minOrder} min={p?.minOrder} placeholder={p?.minOrder} className="input input-bordered input-md w-full max-w-xs" />
+                                        <button className="btn btn-primary" type='submit'>Update</button>
                                     </form>
                                 </div>
                             </div>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInterseptor= axios.create({
-    baseURL: 'http://localhost:5000/'
+    baseURL: 'https://intense-sands-05243.herokuapp.com/'
 });
 
 axiosInterseptor.interceptors.request.use(function (config) {

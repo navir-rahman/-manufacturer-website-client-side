@@ -36,28 +36,28 @@ const Login = () => {
     return (
         <section className='min-h-[70vh]'>
             <h1 className='text-4xl text-center m-8'>Login</h1>
-            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto ">
-                <div class="card-body">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto ">
+                <div className="card-body">
                     <form onSubmit={handleLogin}>
 
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Email</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
                             </label>
-                            <input ref={email} type="email" placeholder="email" class="input input-bordered" />
+                            <input ref={email} type="email" placeholder="email" className="input input-bordered" />
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Password</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Password</span>
                             </label>
-                            <input ref={password} type="password" placeholder="password" class="input input-bordered" />
-                            <label class="label">
-                                <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-                                <Link to={'/register'} class="label-text-alt link link-hover">Don't have an account? <span>Register here</span></Link>
+                            <input ref={password} type="password" placeholder="password" className="input input-bordered" />
+                            <label className="label">
+                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                <Link to={'/register'} className="label-text-alt link link-hover">Don't have an account? <span>Register here</span></Link>
                             </label>
                         </div>
-                        <div class="form-control mt-6">
-                            <button type='submit' class="btn btn-primary">Login</button>
+                        <div className="form-control mt-6">
+                            <button type='submit' className="btn btn-primary">Login</button>
                         </div>
                     </form>
 
@@ -71,7 +71,7 @@ const Login = () => {
                         <p>Error: {Gerror.message}</p>
                         : ' '
                     }
-                    <div class="divider">OR Login Using</div>
+                    <div className="divider">OR Login Using</div>
 
                     <button className='text-center' onClick={handlegoogle}><img className=' image-full m-auto' src="https://img.icons8.com/fluency/48/000000/google-logo.png" /></button>
                 </div>
