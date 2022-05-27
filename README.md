@@ -15,3 +15,10 @@ Live Project [Live link](https://lambent-bombolone-4fe6c9.netlify.app/).
 #toastfy
 #reacr queary
 #axios
+
+# Website Features
+● Responsive website
+● Manage products
+● Manage user
+● Admin features
+● Wholesell features
